@@ -6,3 +6,7 @@ vendor/gems/*
 .sass-cache/*
 db/*.db
 .*.sw*
+Gemfile.lock
+log/*
+pids/*
+nohup.out

@@ -33,11 +33,11 @@ start() {
     echo "Error! $DESC $NAME is currently running!"
     exit 1
   else
-    if [ `whoami` = user ]; then
+    if [ `whoami` = 4pcbr ]; then
       nohup $RVM_BIN_PATH $RVM_GEMSET exec bundle exec $NAME $DAEMON_OPTS start
       echo "$DESC started"
     elif [ `whoami` = root ]; then
-      sudo -u user -H bash -l -c "nohup $RVM_BIN_PATH $RVM_GEMSET exec bundle exec $NAME $DAEMON_OPTS start"
+      sudo -u 4pcbr -H bash -l -c "nohup $RVM_BIN_PATH $RVM_GEMSET exec bundle exec $NAME $DAEMON_OPTS start"
       echo "$DESC started"
     else
       echo "This script should be run by root or user."
@@ -49,11 +49,11 @@ stop() {
   cd $APP_ROOT
   check_pid
   if [ "$PID" -ne 0 -a "$STATUS" -ne 0 ]; then
-    if [ `whoami` = user ]; then
+    if [ `whoami` = 4pcbr ]; then
       nohup $RVM_BIN_PATH $RVM_GEMSET exec bundle exec $NAME $DAEMON_OPTS stop
       echo "$DESC stoped"
     elif [ `whoami` = root ]; then
-      sudo -u user -H bash -l -c "nohup $RVM_BIN_PATH $RVM_GEMSET exec bundle exec $NAME $DAEMON_OPTS stop"
+      sudo -u 4pcbr -H bash -l -c "nohup $RVM_BIN_PATH $RVM_GEMSET exec bundle exec $NAME $DAEMON_OPTS stop"
       echo "$DESC stoped"
     else
       echo "This script should be run by root or user."
@@ -109,7 +109,7 @@ case "$1" in
         status
         ;;
   *)
-        echo "Usage: service basecamp_attachments {start|stop|restart|reload}" >&2
+        echo "Usage: service funda_robot {start|stop|restart|reload}" >&2
         exit 1
         ;;
 esac

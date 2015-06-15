@@ -113,6 +113,3 @@ DEPENDENCIES
   sqlite3
   thin
   thread
-
-BUNDLED WITH
-   1.10.3
