@@ -27,6 +27,7 @@ gem 'padrino', '0.12.5'
 gem 'thread'
 gem 'nokogiri'
 gem 'mandrill-api'
+gem 'thin'
 
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'

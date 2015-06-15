@@ -1,0 +1,9 @@
+environment: production
+port: 10000
+chdir: /home/4pcbr/workspace/FundaRobot
+pid: /home/4pcbr/workspace/FundaRobot/pids/thin.pid
+rackup: config.ru
+log: log/thin.log
+max_conns: 1024
+timeout: 30
+daemonize: true
