@@ -23,9 +23,14 @@ ActiveRecord::Base.configurations[:development] = {
 #   }
 
 ActiveRecord::Base.configurations[:production] = {
-  :adapter => 'sqlite3',
-  :database => Padrino.root('db', 'funda_robot_production.db')
-
+  :adapter   => 'mysql2',
+  :encoding  => 'utf8',
+  :reconnect => true,
+  :database  => ENV['FR_MYSQL_DB'],
+  :pool      => 5,
+  :username  => ENV['FR_MYSQL_USER'],
+  :password  => ENV['FR_MYSQL_PWD'],
+  :host      => 'localhost',
 }
 
 ActiveRecord::Base.configurations[:test] = {
