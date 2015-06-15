@@ -1,0 +1,25 @@
+- error = @subscription.errors.include?(:email)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :email, :class => 'control-label'
+  .controls
+    =f.text_field :email, :class => 'form-control input-large input-with-feedback', :autofocus => true
+    %span.help-inline=error ? f.error_message_on(:email, :class => 'text-error') : pat(:example)
+- error = @subscription.errors.include?(:feed_id)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :feed_id, :class => 'control-label'
+  .controls
+    =f.text_field :feed_id, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:feed_id, :class => 'text-error') : pat(:example)
+- error = @subscription.errors.include?(:is_active)
+%fieldset.control-group{:class => error ? 'has-error' : ''}
+  =f.label :is_active, :class => 'control-label'
+  .controls
+    =f.check_box :is_active, :class => 'form-control input-large input-with-feedback'
+    %span.help-inline=error ? f.error_message_on(:is_active, :class => 'text-error') : pat(:example)
+
+.form-actions
+  =f.submit pat(:save), :class => 'btn btn-primary'
+  &nbsp;
+  =f.submit pat(:save_and_continue), :class => 'btn btn-info', :name => 'save_and_continue'
+  &nbsp;
+  =link_to pat(:cancel), url(:subscriptions, :index), :class => 'btn btn-default'

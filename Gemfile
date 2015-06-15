@@ -17,6 +17,7 @@ gem 'rake'
 gem 'erubis', '~> 2.7.0'
 gem 'activerecord', '>= 3.1', :require => 'active_record'
 gem 'sqlite3'
+gem 'mysql2'
 
 # Test requirements
 
@@ -30,3 +31,4 @@ gem 'padrino', '0.12.5'
 # %w(core support gen helpers cache mailer admin).each do |g|
 #   gem 'padrino-' + g, '0.12.5'
 # end
+#

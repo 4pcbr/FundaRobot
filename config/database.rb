@@ -1,23 +1,25 @@
 ##
 # You can use other adapters like:
 #
-#   ActiveRecord::Base.configurations[:development] = {
-#     :adapter   => 'mysql2',
-#     :encoding  => 'utf8',
-#     :reconnect => true,
-#     :database  => 'your_database',
-#     :pool      => 5,
-#     :username  => 'root',
-#     :password  => '',
-#     :host      => 'localhost',
-#     :socket    => '/tmp/mysql.sock'
-#   }
+#
+#
 #
 ActiveRecord::Base.configurations[:development] = {
-  :adapter => 'sqlite3',
-  :database => Padrino.root('db', 'funda_robot_development.db')
-
+  :adapter   => 'mysql2',
+  :encoding  => 'utf8',
+  :reconnect => true,
+  :database  => ENV['FR_MYSQL_DB'],
+  :pool      => 5,
+  :username  => ENV['FR_MYSQL_USER'],
+  :password  => ENV['FR_MYSQL_PWD'],
+  :host      => 'localhost',
 }
+#
+#   ActiveRecord::Base.configurations[:development] = {
+#     :adapter => 'sqlite3',
+#     :database => Padrino.root('db', 'funda_robot_development.db')
+#   
+#   }
 
 ActiveRecord::Base.configurations[:production] = {
   :adapter => 'sqlite3',
