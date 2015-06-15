@@ -5,17 +5,17 @@ module FundaRobot
     module TitleHelper
       def csrf_token_field(token = nil)
         if defined?(session) && token  ||= session[:csrf]
-          hidden_field_tag :authenticity_token, :value => session[:csrf]
+          hidden_field_tag :authenticity_token, :value => token
         end
       end
-    end
 
-    def user_email_from_session
-      session['user_email']
-    end
+      def user_email_from_session
+        session['user_email']
+      end
 
-    def last_url_from_session
-      session['last_url']
+      def last_url_from_session
+        session['last_url']
+      end
     end
 
     helpers TitleHelper

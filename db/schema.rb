@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 6) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",      limit: 1024
+    t.string   "email",      limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end

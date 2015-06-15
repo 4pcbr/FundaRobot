@@ -29,6 +29,9 @@ gem 'nokogiri'
 gem 'mandrill-api'
 gem 'thin'
 
+gem 'redis',       :require => 'redis'
+gem 'redis-rack',  :require => 'rack/session/redis'
+
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'
 
