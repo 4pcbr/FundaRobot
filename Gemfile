@@ -24,6 +24,10 @@ gem 'mysql2'
 # Padrino Stable Gem
 gem 'padrino', '0.12.5'
 
+gem 'thread'
+gem 'nokogiri'
+gem 'mandrill-api'
+
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'
 

@@ -18,6 +18,7 @@ class Feed < ActiveRecord::Base
                         },
                         :uniqueness => {
                           :case_sensitive => false,
+                          :scope => :interval,
                         },
                         :format => {
                           :with => URI.regexp,
@@ -27,4 +28,11 @@ class Feed < ActiveRecord::Base
                         :inclusion => {
                           :in => KNOWN_INTERVALS.values
                         }
+
+  def update_timestamps
+    self.update_attributes(
+      :updated_at => Time.now
+    )
+  end
+
 end

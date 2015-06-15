@@ -5,19 +5,25 @@ FundaRobot::App.controllers :subscriptions do
       :email => params['email']
     )
     if !user.valid?
-      halt 400
+      flash[:error] = 'Email format is wrong'
+      redirect '/'
     end
+    session['user_email'] = user.email
     feed = Feed.find_or_create_by(
       :url => params['url'],
       :interval => Feed::KNOWN_INTERVALS[params['interval']]
     )
     if !feed.valid?
-      halt 400
+      flash[:error] = 'URL format is wrong'
+      redirect '/'
     end
+    session['last_url'] = feed.url
     if user.subscribe_to(feed)
-      'OK'
+      flash[:success] = 'Welcome human. All your base are belong to us.'
+      redirect '/'
     else
-      halt 400
+      flash[:error] = 'Something went wrong'
+      redirect '/'
     end
   end
 

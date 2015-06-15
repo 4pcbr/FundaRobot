@@ -15,14 +15,23 @@
       <div class='container'>
         <h1>Funda robot</h1>
         <div class=''>
+          <%if flash[:error]%>
+            <div class="alert alert-danger" role="alert"><strong>Robot says: </strong><%=flash[:error]%></div>
+          <%end%>
+          <%if flash[:warning]%>
+            <div class="alert alert-warning" role="alert"><strong>Robot says: </strong><%=flash[:warning]%></div>
+          <%end%>
+          <%if flash[:success]%>
+            <div class="alert alert-success" role="alert"><strong>Robot says: </strong><%=flash[:success]%></div>
+          <%end%>
           <form id='subscription_form' action='/subscriptions/new' method='post' >
             <%=csrf_token_field%>
             <div class='form-group'>
-              <input class='form-control' type='email' name='email' placeholder='My email' />
+              <input class='form-control' type='email' name='email' placeholder='My email' value='<%=user_email_from_session%>' />
             </div>
             <div class='form-group'>
               <label for='input_url'>Funda feed URL:</label>
-                <input class='form-control' type='url' name='url' id='input_url' placeholder='' value='http://www.funda.nl/koop/amsterdam/' />
+              <input class='form-control' type='url' name='url' id='input_url' placeholder='' value='<%=last_url_from_session || 'http://www.funda.nl/koop/amsterdam/'%>' />
             </div>
             <div class='form-group'>
               <label for='input_interval'>Check the URL every </label>

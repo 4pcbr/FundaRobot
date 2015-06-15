@@ -10,6 +10,14 @@ module FundaRobot
       end
     end
 
+    def user_email_from_session
+      session['user_email']
+    end
+
+    def last_url_from_session
+      session['last_url']
+    end
+
     helpers TitleHelper
   end
 end

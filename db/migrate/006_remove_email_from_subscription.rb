@@ -7,7 +7,7 @@ class RemoveEmailFromSubscription < ActiveRecord::Migration
 
   def self.down
     change_table :subscriptions do |t|
-      t.string :email, :limit => 1024
+      t.string :email
     end
   end
 end
