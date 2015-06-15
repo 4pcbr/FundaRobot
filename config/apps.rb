@@ -1,3 +1,5 @@
+require "rack/session/redis"
+
 ##
 # This file mounts each app in the Padrino project to a specified sub-uri.
 # You can mount additional applications using any of these commands below:
@@ -26,13 +28,10 @@
 # override these settings in the subapps as needed.
 #
 Padrino.configure_apps do
-  enable :sessions
   set :session_secret, '54c4eee516ee9bd238008dd89c7f4dae0250720e39e97bde2513e8d24b9aa3ed'
   set :protection, :except => :path_traversal
   set :protect_from_csrf, true
-  set :session_id,     'customsid'
-  #Padrino.use Rack::Session::Redis, :redis_server => 'redis://127.0.0.1:6379/0'
-  Padrino.use Rack::Session::Cookie
+  Padrino.use Rack::Session::Cookie, :secret => '54c4eee516ee9bd238008dd89c7f4dae0250720e39e97bde2513e8d24b9aa3ed'
 end
 
 # Mounts the core application for this project
