@@ -4,7 +4,9 @@ module FundaRobot
     # register Padrino::Mailer
     register Padrino::Helpers
 
-    enable :sessions
+    set :session_id, 'customsid'
+
+    # enable :sessions
 
     ##
     # Caching support.
